@@ -4,7 +4,7 @@ import { PrismaAdapter } from "@auth/prisma-adapter";
 import db from "@/db/index";
 import type { Adapter } from "next-auth/adapters";
 import { SessionStrategy } from "next-auth";
-import { log } from "console";
+
 
 export const authOptions = {
   adapter: PrismaAdapter(db) as Adapter,

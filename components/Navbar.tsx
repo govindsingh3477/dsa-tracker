@@ -1,6 +1,10 @@
 import Link from "next/link";
-
-const Navbar = () => {
+import { authOptions } from "@/lib/auth";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
+const Navbar =async () => {
+  const session = await getServerSession(authOptions);
+  const isAdmin = session?.user?.Admin
   return (
     <nav className="bg-white shadow-md p-4">
       <div className="flex justify-between items-center px-6">
@@ -22,9 +26,13 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link href="/admin" className="text-gray-600 hover:text-blue-600">
-              Admin Panel
-            </Link>
+          {isAdmin ? (
+              <Link href="/admin" className="text-gray-600 hover:text-blue-600">
+                Admin Panel
+              </Link>
+            ) : (
+              <span className="text-gray-400 cursor-not-allowed">Admin Panel</span>
+            )}
           </li>
         </ul>
       </div>

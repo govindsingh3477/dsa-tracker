@@ -11,26 +11,24 @@ export default async function Home() {
   console.log(session?.user?.Admin);
   
   if (!(session?.user)) {
-    // console.log("hi there");
-    
     redirect("/api/auth/signin");
   }
   return (
     <div>
       <Navbar></Navbar>
-      <div className="bg-slate-50 min-h-screen p-6">
+      <div className="bg-red-50 min-h-screen p-6">
       {/* Daily Problems and Useful Resources */}
       <div className="flex flex-col lg:flex-row gap-6 mb-6">
         {/* Daily Problems */}
-       <ProblemCard title="Daily Problems"></ProblemCard>
+       <ProblemCard ></ProblemCard>
 
         {/* Useful Resources */}
-        <ResourcesCard></ResourcesCard>
+        <LeadBoardCard></LeadBoardCard>
+       
       </div>
 
       {/* Leaderboard */}
-      <LeadBoardCard></LeadBoardCard>
-      
+      <ResourcesCard></ResourcesCard>
 
       {/* Footer */}
       

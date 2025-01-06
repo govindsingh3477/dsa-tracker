@@ -53,16 +53,16 @@ const SolveButton: React.FC<SolveButtonProps> = ({ problemId, userId, score }) =
           }
         }}
         className={`px-4 py-1 text-sm font-medium rounded-md ml-4 ${
-          isSolved ? "bg-gray-400 text-white" : "bg-blue-500 text-white"
+        loading? "bg-slate-50" :isSolved  ? "bg-gray-400 text-white" : "bg-blue-500 text-white"
         }`}
         disabled={loading || isSolved} // Disable if loading or already solved
       >
         {loading ? (
-          <span className="loader">Loading...</span> // Display loading state (you can use a spinner or text)
+          <span className="loader">...</span> // Display loading state (you can use a spinner or text)
         ) : isSolved ? (
           "Solved"
         ) : (
-          "Mark as Solved"
+          "Mark !"
         )}
       </button>
 

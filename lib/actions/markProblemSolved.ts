@@ -68,20 +68,29 @@ export default async function markProblemSolved(userId: string, problemId: strin
       }
 
       // Mark the problem as solved in the solvedHistory table
-      await tx.solvedHistory.upsert({
+     // Check if the record already exists
+      const existingEntry = await tx.solvedHistory.findUnique({
         where: {
           userId_problemId: {
             userId,
             problemId,
           },
         },
-        create: {
+      });
+
+      if (existingEntry) {
+        throw new Error("Problem is already marked as solved.");
+      }
+
+      // Create a new entry if no duplicate exists
+      await tx.solvedHistory.create({
+        data: {
           userId,
           problemId,
           solvedAt: today,
         },
-        update: {},
       });
+
 
       // Increase the solvedProblems count and update streak
       await tx.user.update({

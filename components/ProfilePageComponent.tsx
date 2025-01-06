@@ -26,7 +26,7 @@ export default async function ProfilePageComponent({userId}:{userId:string}) {
   return (
     <>
       <Navbar />
-      <div className="space-y-6 p-6">
+      <div className="space-y-6 p-6 bg-red-50">
         {/* Profile Section */}
         <div className="grid grid-cols-1 sm:grid-cols-12 gap-6">
             <div className="p-2 m-auto sm:m-0 sm:col-span-6 lg:col-span-3 bg-white rounded-lg ">
