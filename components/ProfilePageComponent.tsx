@@ -1,4 +1,4 @@
-import React, { use } from 'react'
+import React from 'react'
 import Navbar from './Navbar'
 import ProfileCard from './ProfileCard'
 import UserStatics from './Userstatics'
@@ -13,7 +13,7 @@ interface userPropInterface{
   Admin: boolean
 }
 export default async function ProfilePageComponent({userId}:{userId:string}) {
-  const {totalCount,userDetails} = await getUserDetails(userId)
+  const { userDetails} = await getUserDetails(userId)
   const user:userPropInterface={
     name:userDetails.name,
     email:userDetails.email,

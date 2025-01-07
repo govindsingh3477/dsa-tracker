@@ -40,7 +40,7 @@ export default async function markProblemSolved(userId: string, problemId: strin
   // Perform upsert to insert or update the solved history
   try {
     // Start a transaction
-    const transaction = await prisma.$transaction(async (tx) => {
+    const transaction = await prisma.$transaction(async (tx:any) => {
       // Get the user's last solved date and current streak
       const user = await tx.user.findUnique({
         where: { id: userId },
@@ -111,7 +111,11 @@ export default async function markProblemSolved(userId: string, problemId: strin
     });
 
     return transaction;
-  } catch (error: any) {
-    throw new Error(`Error marking problem as solved: ${error.message}`);
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      throw new Error(`Error getting the problem history: ${error.message}`);
+    } else {
+      throw new Error("Error getting the problem history: Unknown error occurred");
+    }
   }
 }

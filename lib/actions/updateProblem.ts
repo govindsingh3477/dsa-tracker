@@ -51,6 +51,6 @@ export default async function updateProblem(id:string ,problemData: Problem){
             link:true
           },
     })
-    return updateProblem;
+    return updatedProblem;
 
 }

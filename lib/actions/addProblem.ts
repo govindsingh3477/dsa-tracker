@@ -4,7 +4,7 @@ import { getServerSession } from "next-auth"
 import { authOptions } from "../auth"
 import prisma from "@/db";
 import {z} from "zod"
-import { error } from "console";
+
 interface Problem {
     id: string;
     title: string;

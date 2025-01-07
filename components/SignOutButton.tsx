@@ -19,7 +19,7 @@ export default function SignOutButton() {
   };
 
   // Proceed with sign out
-  const handleConfirm = () => {
+  const handleConfirm = async() => {
     signOut();
     setIsModalOpen(false); // Close the modal after sign-out
   };

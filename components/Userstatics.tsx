@@ -1,9 +1,8 @@
-import { string } from "zod";
 import WrapperCard from "./admin/WrapperCard";
 interface Statistics{
-  streak:Number,
-  problemsSolved:Number,
-  score:Number
+  streak:number,
+  problemsSolved:number,
+  score:number
 
 }
 export default function UserStatics({streak,problemsSolved,score}:Statistics){

@@ -37,7 +37,12 @@ export default async function getProblemList(page: number=1) {
 
 
     return problemList;
-  } catch (error: any) {
-    throw new Error(`Error getting the problem history: ${error.message}`);
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      throw new Error(`Error getting the problem history: ${error.message}`);
+    } else {
+      throw new Error("Error getting the problem history: Unknown error occurred");
+    }
   }
+  
 }

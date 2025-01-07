@@ -35,7 +35,7 @@ export default async function ProblemList() {
             </tr>
           </thead>
           <tbody>
-            {ProblemList.map((problem) => (
+            {ProblemList.map((problem:any) => (
               <Content key={problem.id} problem={problem} userId={userId} />
             ))}
           </tbody>

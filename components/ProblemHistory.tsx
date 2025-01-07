@@ -19,7 +19,7 @@ interface Problem {
 //   date: "govind"
 // }
 export default async function ProblemHistory({userId}:{userId:string}) {
-  const {problemHistory,pagination}=await getUserProblemHistory(userId);
+  const {problemHistory,}=await getUserProblemHistory(userId);
 
   return (
     <div>
@@ -37,7 +37,7 @@ export default async function ProblemHistory({userId}:{userId:string}) {
             </tr>
           </thead>
           <tbody>
-           {problemHistory.map((problem)=><Content key={problem.problemId} problem={problem}></Content>)}
+           {problemHistory.map((problem:any)=><Content key={problem.problemId} problem={problem}></Content>)}
           </tbody>
         </table>
       </div>

@@ -30,7 +30,7 @@ const LeadBoardCard = async() => {
   return (
     <div>
       <OuterBox bgColor="bg-white" title="Leaderboard">
-        {leaderBoard.map((user,index)=><UserProfile key={user.id} rank={index} user_id={user.id} name={(user.name?user.name:"")} points={user.score} />)}
+        {leaderBoard.map((user:any,index:any)=><UserProfile key={user.id} rank={index} user_id={user.id} name={(user.name?user.name:"")} points={user.score} />)}
       </OuterBox>
     </div>
   );

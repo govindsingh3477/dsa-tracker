@@ -57,7 +57,7 @@ export default async function getUserProblemHistory(userId: string, page: number
     });
 
     // Map problem history to include related problem fields and solvedAt date
-    const formattedProblemHistory = problemHistory.map((entry) => ({
+    const formattedProblemHistory = problemHistory.map((entry:any) => ({
       problemId: entry.problemId,
       title: entry.problem?.title || "Unknown",
       difficulty: entry.problem?.difficulty || "Unknown",
@@ -75,7 +75,11 @@ export default async function getUserProblemHistory(userId: string, page: number
         totalPages: Math.ceil(totalSolvedCount / ITEMS_PER_PAGE),
       },
     };
-  } catch (error: any) {
-    throw new Error(`Error getting the problem history: ${error.message}`);
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      throw new Error(`Error getting the problem history: ${error.message}`);
+    } else {
+      throw new Error("Error getting the problem history: Unknown error occurred");
+    }
   }
 }

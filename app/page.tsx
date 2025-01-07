@@ -8,7 +8,7 @@ import ResourcesCard from "@/components/ResourcesCard";
 import Footer from "@/components/Footer";
 export default async function Home() {
   const session = await getServerSession(authOptions);
-  console.log(session?.user?.Admin);
+  
   
   if (!(session?.user)) {
     redirect("/api/auth/signin");

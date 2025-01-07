@@ -8,12 +8,11 @@ interface ProblemBoxProps {
   problemId:string
   platform: string; // e.g., "LeetCode", "GeeksforGeeks"
   difficulty: Difficulty; // e.g., "Easy", "Medium", "Hard"
-  title: string; // e.g., "Two Sum"
-  points?: number; // e.g., 50
+  title: string; // e.g., "Two Sum"; // e.g., 50
   link: string; // The external link to the problem, e.g., "https://otherplatform.com/problems/two-sum/"
 }
 
-async function ProblemBox({ platform, difficulty = "MEDIUM", title, points = 3, link ,problemId}:ProblemBoxProps){
+async function ProblemBox({ platform, difficulty = "MEDIUM", title, link ,problemId}:ProblemBoxProps){
 
 
 const session=await getServerSession(authOptions)

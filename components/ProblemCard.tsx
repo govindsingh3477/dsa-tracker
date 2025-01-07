@@ -1,5 +1,4 @@
 import React from "react";
-import getProblemList from "@/lib/actions/getProblemList";
 import SolveButton from "./SolveButton"; // Import the SolveButton component
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
@@ -34,7 +33,7 @@ export default async function ProblemCard() {
             </tr>
           </thead>
           <tbody>
-            {ProblemList.map((problem) => (
+            {ProblemList.map((problem:any) => (
               <Content key={problem.id} problem={problem} userId={userId} />
             ))}
           </tbody>

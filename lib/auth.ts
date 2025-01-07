@@ -4,6 +4,9 @@ import { PrismaAdapter } from "@auth/prisma-adapter";
 import db from "@/db/index";
 import type { Adapter } from "next-auth/adapters";
 import { SessionStrategy } from "next-auth";
+import { JWT } from "next-auth/jwt";
+
+
 
 
 export const authOptions = {
@@ -23,13 +26,13 @@ export const authOptions = {
   secret: process.env.NEXTAUTH_SECRET || "secr3t",
   session: { strategy: "jwt" as SessionStrategy },
   callbacks: {
-    async jwt({ token, user }:any) {
+    async jwt({ token, user }:{ token: JWT; user: any }) {
       if (user) {
         token.sub = user.id;  // Ensure user ID is added to the token
       }
       return token;
     },
-    async session({ session, token }: any) {
+    async session({ session, token }:  { session: any; token: JWT }) {
       const user = await db.user.findUnique({
         where: {
           id: token.sub,

@@ -48,8 +48,12 @@ export default async function getUserDetails(userId: string) {
         userDetails
       }
 
-    } catch (error:any) {
-      throw new Error(`Error getting the information  ${error.message}`);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        throw new Error(`Error getting the problem history: ${error.message}`);
+      } else {
+        throw new Error("Error getting the problem history: Unknown error occurred");
+      }
     }
   }
   

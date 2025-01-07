@@ -9,7 +9,7 @@ export default async function ProfilePage() {
         redirect("/api/auth/signin");
       }
       const user = session.user;
-      console.log(user);
+      // console.log(user);
       
   return (
      <ProfilePageComponent userId={user.id}></ProfilePageComponent>
