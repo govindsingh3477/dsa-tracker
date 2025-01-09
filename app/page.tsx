@@ -6,6 +6,7 @@ import LeadBoardCard from "@/components/LeaderBoardCard";
 import ProblemCard from "@/components/ProblemCard";
 import ResourcesCard from "@/components/ResourcesCard";
 import Footer from "@/components/Footer";
+import AboutCard from "@/components/AboutCard";
 export default async function Home() {
   const session = await getServerSession(authOptions);
   
@@ -28,8 +29,11 @@ export default async function Home() {
       </div>
 
       {/* Leaderboard */}
-      <ResourcesCard></ResourcesCard>
-
+      {/* <ResourcesCard></ResourcesCard> */}
+      {/* <AboutCard></AboutCard> */}
+      <div className="mt-6">
+          <AboutCard></AboutCard> {/* Add AboutCard component */}
+        </div>
       {/* Footer */}
       
     </div>
