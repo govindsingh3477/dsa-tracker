@@ -15,7 +15,7 @@ export default function ProblemPageComponent({ProblemList ,userId}:{ProblemList:
     const [Problems,setProblems]=useState<Problem[]>(ProblemList)
     
   return (
-    <div className="flex h-screen bg-gray-100">
+    <div className="flex flex-col items-center md:items-stretch md:flex-row h-screen bg-gray-100">
       {/* Sidebar */}
       <div className="w-72 bg-white border-r shadow-md">
         <FiltersAndSorting setProblems={setProblems}/>

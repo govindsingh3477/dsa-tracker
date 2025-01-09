@@ -10,7 +10,7 @@ export default async function getLeaderBoard(){
             name:true,
             image:true
           },
-          take:10,
+          take:6,
           orderBy: {
             score: "desc", // Order by most recently solved problems
           },

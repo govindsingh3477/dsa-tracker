@@ -11,10 +11,10 @@ interface UserProfileProps {
 
 export const UserProfile: React.FC<UserProfileProps> = ({ rank, user_id, name, points }) => {
   return (
-    <div className="p-4 shadow-md rounded-md bg-slate-50 flex justify-between items-center space-x-4 border border-gray-200">
+    <div className="px-4 shadow-md rounded-md bg-slate-50 flex justify-between items-center space-x-4 border ">
       <div className="flex items-center">
         {/* Use Link directly and pass the classes */}
-        <Link href={`/profile/${user_id}`} className="font-semibold text-lg">
+        <Link href={`/profile/${user_id}`} className="font-normal text-lg">
           {rank}. {name}
         </Link>
       </div>
