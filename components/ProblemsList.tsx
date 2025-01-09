@@ -1,8 +1,7 @@
 import React from "react";
-import getProblemList from "@/lib/actions/getProblemList";
+
 import SolveButton from "./SolveButton"; // Import the SolveButton component
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/auth";
+
 
 interface Problem {
   id: string;
@@ -13,10 +12,7 @@ interface Problem {
   createdAt: Date;
 }
 
-export default async function ProblemList() {
-  const session = await getServerSession(authOptions)
-  const ProblemList = await getProblemList(1);
-  const userId = session.user.id
+export default  function ProblemList({ProblemList,userId}:{ProblemList:Problem[],userId:string}) {
 
   return (
     <div>

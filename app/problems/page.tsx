@@ -1,6 +1,6 @@
-import FiltersAndSorting from "@/components/FilterAndSorting";
 import Navbar from "@/components/Navbar";
-import ProblemsList from "@/components/ProblemsList";
+import ProblemPageComponent from "@/components/ProblemPageComponent";
+import getFilteredProblemList from "@/lib/actions/getFilteredProblemList";
 import { authOptions } from "@/lib/auth";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
@@ -11,19 +11,12 @@ export default async function ProblemsPage() {
         if (!(session?.user)) { 
           redirect("/api/auth/signin");
         }
+  const ProblemList = await getFilteredProblemList({});
+  const userId = session.user.id;
   return (
     <>
     <Navbar></Navbar>
-    <div className="flex h-screen bg-gray-100">
-      {/* Sidebar */}
-      <div className="w-72 bg-white border-r shadow-md">
-        <FiltersAndSorting/>
-      </div>
-      <div className="w-full p-4">
-      <ProblemsList ></ProblemsList>
-      </div>
-      
-    </div>
+    <ProblemPageComponent ProblemList={ProblemList} userId={userId}></ProblemPageComponent>
     
     </>);
 }
