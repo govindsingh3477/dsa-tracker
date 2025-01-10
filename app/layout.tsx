@@ -4,6 +4,7 @@ import "./globals.css";
 import { Providers } from "@/providers";
 import NextTopLoader from "nextjs-toploader";
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from "@vercel/analytics/react"
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -33,6 +34,7 @@ export default function RootLayout({
         <Providers>
         {children}
         <SpeedInsights />
+        <SpeedInsights></SpeedInsights>
         </Providers>
         
       </body>
