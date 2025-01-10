@@ -34,7 +34,7 @@ export default function RootLayout({
         <Providers>
         {children}
         <SpeedInsights />
-        <SpeedInsights></SpeedInsights>
+        <Analytics></Analytics>
         </Providers>
         
       </body>
